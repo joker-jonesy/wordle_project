@@ -11,7 +11,7 @@ function Guesses(){
 
     React.useEffect(()=>{
         setGs(guesses)
-    },[change])
+    },[change,guesses])
 
 
     let g_eles = gs.map((g,i)=>
