@@ -21,12 +21,14 @@ function GL(props) {
                     if (indicesAnswer.find(itm=>itm===props.idx)===props.idx) {
                         style = {
                             color: "white",
-                            backgroundColor: "green"
+                            backgroundColor: "green",
+                            border:"none"
                         }
                     } else {
                         style = {
                             color: "white",
-                            backgroundColor: "black"
+                            backgroundColor: "black",
+                            border:"none"
                         }
                     }
 
@@ -34,20 +36,23 @@ function GL(props) {
 
                     style = {
                         color: "white",
-                        backgroundColor: "green"
+                        backgroundColor: "green",
+                        border:"none"
                     }
                 }
 
             } else {
                 style = {
                     color: "black",
-                    backgroundColor: "yellow"
+                    backgroundColor: "yellow",
+                    border:"none"
                 }
             }
         } else {
             style = {
                 color: "white",
-                backgroundColor: "black"
+                backgroundColor: "black",
+                border:"none"
             }
         }
     }

@@ -4,7 +4,7 @@ import {DeleteLetter} from "../redux/actions/DeleteLetter";
 import {SubmitGuess} from "../redux/actions/SubmitGuess";
 function Keys(){
 
-    const keys = 'abcdefghijklmnopqrstuvwxyz'.split("");
+    const keys = 'qwertyuiopasdfghjklzxcvbnm'.split("");
     const dispatch=useDispatch()
 
     let key_eles = keys.map((k,i)=>
@@ -14,8 +14,8 @@ function Keys(){
     return (
         <div className={"keys"}>
             {key_eles}
-            <div className="key" onClick={()=>dispatch(SubmitGuess())}>Submit</div>
-            <div className="key" onClick={()=>dispatch(DeleteLetter())}>Delete</div>
+            <div className="key submit" onClick={()=>dispatch(SubmitGuess())}>Enter</div>
+            <div className="key delete" onClick={()=>dispatch(DeleteLetter())}>Delete</div>
         </div>
     )
 }

@@ -1,11 +1,44 @@
 * {
   margin: 0;
 }
-.contain {
+#root,
+.App {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Roboto;
+}
+.contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  height: 90vh;
+}
+.contain .message {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contain .message .tab {
+  height: 80px;
+  border-radius: 8px;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
 }
 .guesses {
   display: flex;
@@ -13,40 +46,79 @@
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 25px;
+  position: relative;
+  width: 100%;
 }
 .guesses .guess {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .guesses .guess .gl {
-  height: 60px;
-  width: 60px;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.23) 2px 2px 2px;
+  height: 62px;
+  width: 62px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid #939598;
+  margin: 4px;
+  text-transform: capitalize;
 }
 .keys {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 360px;
+  width: 100%;
+  position: relative;
+  height: 175px;
+}
+@media screen and (min-width: 390px) {
+  .keys {
+    width: 360px;
+  }
 }
 .key {
+  position: relative;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
   padding: 8px;
   align-items: center;
   text-align: center;
-  height: 40px;
+  height: 50px;
   min-width: 30px;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 2px;
+  border-radius: 4px;
   cursor: pointer;
+  background-color: #939598;
+  color: white;
+  margin: 0 6px 0 0;
+}
+.key.submit {
+  position: absolute;
+  top: 120px;
+  left: 25px;
+  margin: 0;
+}
+@media screen and (min-width: 390px) {
+  .key.submit {
+    left: 0;
+  }
+}
+.key.delete {
+  position: absolute;
+  top: 120px;
+  right: 25px;
+  margin: 0;
+  width: 55px;
+}
+@media screen and (min-width: 390px) {
+  .key.delete {
+    right: 0;
+  }
 }
 /*# sourceMappingURL=index.css.map */
