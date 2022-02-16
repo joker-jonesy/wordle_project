@@ -2,6 +2,16 @@ const rootReducer = (state, action) => {
     let activeGuess = state.guesses[state.try];
     let newGuesses = state.guesses;
 
+    // if(action.type==="SubmitGuess"){
+    //
+    // }else if(action.type){
+    //
+    // }else if(action.type){
+    //
+    // }else{
+    //
+    // }
+
     switch (action.type) {
 
         case "SubmitGuess":
@@ -30,6 +40,8 @@ const rootReducer = (state, action) => {
                     guessed: addLetters
                 };
             }
+            break;
+
 
 
         case "InputLetter":
@@ -48,6 +60,7 @@ const rootReducer = (state, action) => {
                     change: !state.change
                 };
             }
+            break;
 
 
         case "DeleteLetter":
@@ -79,6 +92,7 @@ const rootReducer = (state, action) => {
                     change: !state.change
                 };
             }
+            break;
 
 
         default:

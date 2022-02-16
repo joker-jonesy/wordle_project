@@ -6,12 +6,12 @@ import React from "react";
 function Guesses(){
 
     let guesses = useSelector(state=>state.guesses);
-
+    let change =  useSelector(state=>state.change)
     const [gs,setGs]=React.useState(guesses);
 
     React.useEffect(()=>{
         setGs(guesses)
-    },[guesses])
+    },[change])
 
 
     let g_eles = gs.map((g,i)=>
