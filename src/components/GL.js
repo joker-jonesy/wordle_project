@@ -5,18 +5,24 @@ function GL(props) {
     const cTry = useSelector(state => state.try);
     const guesses = useSelector(state => state.guesses);
     const answer = useSelector(state => state.answer);
+    // const guessed=useSelector(state=>state.guessed);
 
     const currentGuess = guesses[props.gi];
     let style;
 
+    let indicesAnswer = [];
+    let chrCountAnswer = [];
+    for (let i = 0; i < answer.length; i++) {
+        if (answer[i] === props.vl){
+            indicesAnswer.push(i);
+            chrCountAnswer.push(props.vl)
+        }
+    }
+
     if (cTry !== 0 && props.gi < cTry) {
         if (answer.join('').includes(currentGuess[props.idx])) {
             if (answer.indexOf(currentGuess[props.idx]) === currentGuess.indexOf(props.vl)) {
-                if (currentGuess.join().split(props.vl).length - 1 > 1) {
-                    let indicesAnswer = [];
-                    for (let i = 0; i < answer.length; i++) {
-                        if (answer[i] === props.vl) indicesAnswer.push(i);
-                    }
+                if (currentGuess.filter((x)=>x===props.vl).length > 1) {
 
                     if (indicesAnswer.find(itm=>itm===props.idx)===props.idx) {
                         style = {
@@ -42,11 +48,28 @@ function GL(props) {
                 }
 
             } else {
-                style = {
-                    color: "black",
-                    backgroundColor: "yellow",
-                    border:"none"
+                if (currentGuess.filter((x)=>x===props.vl).length > 1) {
+                    if(answer.length-props.idx<=currentGuess.filter((x)=>x===props.vl).length){
+                        style = {
+                            color: "black",
+                            backgroundColor: "yellow",
+                            border:"none"
+                        }
+                    }else{
+                        style = {
+                            color: "white",
+                            backgroundColor: "black",
+                            border:"none"
+                        }
+                    }
+                }else{
+                    style = {
+                        color: "black",
+                        backgroundColor: "yellow",
+                        border:"none"
+                    }
                 }
+
             }
         } else {
             style = {

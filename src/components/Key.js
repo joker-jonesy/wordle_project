@@ -10,21 +10,27 @@ function Key(props){
     const dispatch=useDispatch();
 
     let style;
+    let stop=false;
 
     if(guessed.includes(props.vl)){
         if(answer.join('').includes(props.vl)){
             for(let i=0; i<cTry; i++){
-                if(guesses[i].indexOf(props.vl)===answer.join('').indexOf(props.vl)){
-                    style={
-                        color:"white",
-                        backgroundColor:"green"
-                    }
-                }else{
-                    style={
-                        color:"black",
-                        backgroundColor:"yellow"
+                if(!stop){
+                    if(guesses[i].indexOf(props.vl)===answer.join('').indexOf(props.vl)){
+                        style={
+                            color:"white",
+                            backgroundColor:"green"
+                        }
+                        stop=true;
+                    }else{
+                        style={
+                            color:"black",
+                            backgroundColor:"yellow"
+                        }
+                        stop=true;
                     }
                 }
+
             }
 
         }else{
