@@ -16,6 +16,24 @@ html,body{
   height: 100%;
 }
 
+.App{
+  .hp{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border: 2px solid black;
+    position: fixed;
+    top:4px;
+    right: 4px;
+    font-size: 24px;
+    z-index: 100;
+    cursor: pointer;
+  }
+}
+
 .contain{
   display: flex;
   flex-direction: column;
@@ -70,28 +88,30 @@ html,body{
   position: relative;
   width: 100%;
 
-  .guess{
+
+
+}
+
+.guess{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .gl{
+    height: 62px;
+    width: 62px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     position: relative;
-
-    .gl{
-      height: 62px;
-      width: 62px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      box-sizing: border-box;
-      border: 2px solid #939598;
-      margin: 4px;
-      text-transform: capitalize;
-      animation-duration: 1s;
-    }
+    box-sizing: border-box;
+    border: 2px solid #939598;
+    margin: 4px;
+    text-transform: capitalize;
+    animation-duration: 1s;
   }
-
 }
 
 .keys{
@@ -144,6 +164,46 @@ html,body{
 
     @media screen and(min-width: 390px){
      right: 0;
+    }
+  }
+}
+
+.help{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 100;
+  .close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 36px;
+  }
+  .help-wrap{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    max-width: 360px;
+    p{
+      width: 100%;
+    }
+
+    h3,p{
+      margin-top: 8px;
     }
   }
 }

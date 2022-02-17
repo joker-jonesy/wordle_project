@@ -25,7 +25,8 @@ function initState(){
         end:false,
         win:false,
         warn:false,
-        press:false
+        press:false,
+        help:true
     }
 }
 

@@ -1,14 +1,48 @@
+import initState from "../store/initState";
+import {save} from "./LocalStorage";
+
 const rootReducer = (state, action) => {
     let activeGuess = state.guesses[state.try];
     let newGuesses = state.guesses;
 
     switch (action.type) {
 
+        case "ToggleHelp":
+
+            let nS = {
+                ...state,
+                help: !state.help
+            }
+
+            save(nS);
+            return nS;
+
+        case "NewGame":
+            const newState = initState();
+            let nG = {
+                try: newState.try,
+                guesses: newState.guesses,
+                answer: newState.answer,
+                guessed: newState.guessed,
+                change: newState.change,
+                end: newState.end,
+                win: newState.win,
+                warn: newState.warn,
+                press: newState.press,
+                help: false
+            }
+
+            save(nG);
+
+            return nG;
+
+
         case "SubmitGuess":
             let newTry = state.try + 1;
             let win = state.win;
             let end = state.end;
             let addLetters = state.guessed;
+            let nGs;
 
             if (activeGuess.indexOf('') === -1 && !state.end) {
                 newGuesses[state.try] = activeGuess;
@@ -21,7 +55,7 @@ const rootReducer = (state, action) => {
                 if (newTry === 6) {
                     end = true;
                 }
-                return {
+                nGs={
                     ...state,
                     guesses: newGuesses,
                     try: newTry,
@@ -29,40 +63,49 @@ const rootReducer = (state, action) => {
                     win: win,
                     end: end,
                     guessed: addLetters,
-                    warn:false,
-                    press:!state.press
+                    warn: false,
+                    press: !state.press
                 };
-            }else{
-                return {
+                save(nGs)
+                return nGs;
+            } else {
+                nGs={
                     ...state,
-                    warn:true,
-                    press:!state.press
+                    warn: true,
+                    press: !state.press
                 }
+                save(nGs)
+                return nGs;
             }
-
 
 
         case "InputLetter":
 
+            let nL;
+
             if (!state.end) {
                 const index = activeGuess.indexOf('');
-                let wn=false;
-                if (activeGuess.includes("")&&index<state.answer.length) {
+                let wn = false;
+                if (activeGuess.includes("") && index < state.answer.length) {
 
                     activeGuess[index] = action.val;
-                }else{
-                    wn=true;
+                } else {
+                    wn = true;
                 }
 
                 newGuesses[state.try] = activeGuess
 
-                return {
+                nL={
                     ...state,
                     guesses: newGuesses,
                     change: !state.change,
-                    warn:wn,
-                    press:!state.press
+                    warn: wn,
+                    press: !state.press
                 };
+
+                save(nL)
+
+                return nL;
             }
             break;
 
@@ -74,12 +117,12 @@ const rootReducer = (state, action) => {
             };
 
 
-
-
         case "DeleteLetter":
 
+            let nD;
+
             if (!state.end) {
-                let wn=false;
+                let wn = false;
                 let item;
                 let stop = false;
 
@@ -92,8 +135,8 @@ const rootReducer = (state, action) => {
                     }
                 }
 
-                if(activeGuess.indexOf('')===0){
-                    wn=true;
+                if (activeGuess.indexOf('') === 0) {
+                    wn = true;
                 }
 
 
@@ -101,23 +144,24 @@ const rootReducer = (state, action) => {
                 activeGuess[index] = '';
 
 
-
-
                 newGuesses[state.try] = activeGuess
 
-
-                return {
+                nD={
                     ...state,
                     guesses: newGuesses,
                     change: !state.change,
-                    warn:wn,
-                    press:!state.press
+                    warn: wn,
+                    press: !state.press
                 };
+
+                save(nD);
+                return nD;
             }
             break;
 
 
         default:
+            save(state);
             return state;
     }
 

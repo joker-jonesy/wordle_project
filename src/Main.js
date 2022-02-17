@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {SubmitGuess} from "./redux/actions/SubmitGuess";
 import {DeleteLetter} from "./redux/actions/DeleteLetter";
 import {InputLetter} from "./redux/actions/InputLetter";
+import {NewGame} from "./redux/actions/NewGame";
 
 const enter_keys = ['Enter'];
 const back_keys = ['Backspace', 8];
@@ -42,9 +43,9 @@ function Main() {
 
     useEventListener("keydown", handler);
 
-    const reload_page= ()=>{
-        window.location.reload(false);
-    }
+    // const reload_page= ()=>{
+    //     window.location.reload(false);
+    // }
 
     let color;
 
@@ -54,16 +55,20 @@ function Main() {
         color="red";
     }
 
+    const create_new_game=()=>{
+        dispatch(NewGame())
+    }
+
     return (
         <div className="contain">
-            <h1>Guess the Random Word!</h1>
+            <h1>Guess the Word!</h1>
             <Guesses/>
             <Keys/>
             {end && <div className="message">
                 <div className="tab" style={{backgroundColor: color}}>
                     {win && <h1>You Win!!</h1>}
                     {end && !win ? <h1>You Lose. The Answer was {answer.join('')}</h1> : ""}
-                    <h2 onClick={reload_page}>Play Again?</h2>
+                    <h2 onClick={create_new_game}>Play Again?</h2>
                 </div>
             </div>}
 
