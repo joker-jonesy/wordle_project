@@ -15,11 +15,13 @@ const rootReducer = (state, action) => {
     switch (action.type) {
 
         case "SubmitGuess":
+
             let newTry = state.try + 1;
             let win = state.win;
             let end = state.end;
             let addLetters = state.guessed;
-            if (activeGuess.at(-1) !== '' && !state.end) {
+
+            if (activeGuess.indexOf('') === -1 && !state.end) {
                 newGuesses[state.try] = activeGuess;
                 addLetters = addLetters + activeGuess.join('');
                 if (newGuesses[state.try].join('') === state.answer.join('')) {
@@ -39,6 +41,11 @@ const rootReducer = (state, action) => {
                     end: end,
                     guessed: addLetters
                 };
+            }else{
+                return {
+                    ...state,
+                    warn:true
+                }
             }
             break;
 
