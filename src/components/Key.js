@@ -15,7 +15,6 @@ function Key(props) {
     if (guessed.includes(props.vl)) {
         if (answer.join('').includes(props.vl)) {
             for (let i = 0; i < cTry; i++) {
-                console.log(props.vl, guesses[i].indexOf(props.vl), answer.indexOf(props.vl));
                 if (!stop) {
                     if (guesses[i].indexOf(props.vl) === answer.indexOf(props.vl)) {
                         style = {
@@ -24,7 +23,7 @@ function Key(props) {
                         }
 
                         stop = true;
-                        
+
 
                     } else {
                         style = {
