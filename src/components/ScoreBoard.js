@@ -12,18 +12,15 @@ function ScoreBoard(){
 
     }, [end])
 
-
-
-
     return(
         <div className="scores">
-            <h3>1: {scr[1]}</h3>
-            <h3>2: {scr[2]}</h3>
-            <h3>3: {scr[3]}</h3>
-            <h3>4: {scr[4]}</h3>
-            <h3>5: {scr[5]}</h3>
-            <h3>6: {scr[6]}</h3>
-            <h3>Loss: {scr.lose}</h3>
+            <h3>1: {scr[1]?scr[1]:0}</h3>
+            <h3>2: {scr[2]?scr[2]:0}</h3>
+            <h3>3: {scr[3]?scr[3]:0}</h3>
+            <h3>4: {scr[4]?scr[4]:0}</h3>
+            <h3>5: {scr[5]?scr[5]:0}</h3>
+            <h3>6: {scr[6]?scr[6]:0}</h3>
+            <h3>Loss: {scr.lose?scr.lose:0}</h3>
         </div>
     )
 }

@@ -33,10 +33,12 @@ function Main() {
     const win = useSelector(state => state.win);
     const end = useSelector(state => state.end);
     const answer = useSelector(state => state.answer);
+
     const handler = ({key}) => {
+        console.log(window.innerWidth);
         if ('abcdefghijklmnopqrstuvwxyz'.split('').includes(key)) {
             dispatch(InputLetter(key))
-        } else if (enter_keys.includes(key)) {
+        } else if (enter_keys.includes(key) && window.innerWidth>400) {
             dispatch(SubmitGuess())
         } else if (back_keys.includes(key)) {
             dispatch(DeleteLetter())
