@@ -5,7 +5,6 @@ const rootReducer = (state, action) => {
     switch (action.type) {
 
         case "SubmitGuess":
-
             let newTry = state.try + 1;
             let win = state.win;
             let end = state.end;

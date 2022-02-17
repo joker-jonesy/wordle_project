@@ -6,7 +6,7 @@ import {SubmitGuess} from "./redux/actions/SubmitGuess";
 import {DeleteLetter} from "./redux/actions/DeleteLetter";
 import {InputLetter} from "./redux/actions/InputLetter";
 
-const enter_keys = [13];
+const enter_keys = ['Enter'];
 const back_keys = ['Backspace', 8];
 
 const useEventListener = (eventName, handler, element = window) => {
@@ -38,8 +38,6 @@ function Main() {
         } else if (back_keys.includes(key)) {
             dispatch(DeleteLetter())
         }
-
-
     };
 
     useEventListener("keydown", handler);

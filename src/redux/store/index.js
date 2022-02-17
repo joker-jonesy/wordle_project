@@ -1,8 +1,8 @@
 import {createStore} from "redux";
 import rootReducer from "../reducers/rootReducer";
-import {initState} from "./initState";
+import initState from "./initState";
 
-function configureStore (state=initState){
+function configureStore (state=initState()){
     return createStore(rootReducer, state);
 }
 
