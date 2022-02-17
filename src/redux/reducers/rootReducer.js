@@ -2,16 +2,6 @@ const rootReducer = (state, action) => {
     let activeGuess = state.guesses[state.try];
     let newGuesses = state.guesses;
 
-    // if(action.type==="SubmitGuess"){
-    //
-    // }else if(action.type){
-    //
-    // }else if(action.type){
-    //
-    // }else{
-    //
-    // }
-
     switch (action.type) {
 
         case "SubmitGuess":
@@ -39,15 +29,17 @@ const rootReducer = (state, action) => {
                     change: !state.change,
                     win: win,
                     end: end,
-                    guessed: addLetters
+                    guessed: addLetters,
+                    warn:false,
+                    press:!state.press
                 };
             }else{
                 return {
                     ...state,
-                    warn:true
+                    warn:true,
+                    press:!state.press
                 }
             }
-            break;
 
 
 
