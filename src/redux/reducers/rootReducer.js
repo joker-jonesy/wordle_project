@@ -47,9 +47,13 @@ const rootReducer = (state, action) => {
         case "InputLetter":
 
             if (!state.end) {
-                if (activeGuess.includes("")) {
-                    const index = activeGuess.indexOf('');
+                const index = activeGuess.indexOf('');
+                let wn=false;
+                if (activeGuess.includes("")&&index<state.answer.length) {
+
                     activeGuess[index] = action.val;
+                }else{
+                    wn=true;
                 }
 
                 newGuesses[state.try] = activeGuess
@@ -57,15 +61,27 @@ const rootReducer = (state, action) => {
                 return {
                     ...state,
                     guesses: newGuesses,
-                    change: !state.change
+                    change: !state.change,
+                    warn:wn,
+                    press:!state.press
                 };
             }
             break;
+
+        case "ClearWarning":
+
+            return {
+                ...state,
+                warn: false
+            };
+
+
 
 
         case "DeleteLetter":
 
             if (!state.end) {
+                let wn=false;
                 let item;
                 let stop = false;
 
@@ -78,9 +94,15 @@ const rootReducer = (state, action) => {
                     }
                 }
 
+                if(activeGuess.indexOf('')===0){
+                    wn=true;
+                }
+
 
                 const index = activeGuess.lastIndexOf(item);
                 activeGuess[index] = '';
+
+
 
 
                 newGuesses[state.try] = activeGuess
@@ -89,7 +111,9 @@ const rootReducer = (state, action) => {
                 return {
                     ...state,
                     guesses: newGuesses,
-                    change: !state.change
+                    change: !state.change,
+                    warn:wn,
+                    press:!state.press
                 };
             }
             break;

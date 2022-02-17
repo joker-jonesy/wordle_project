@@ -29,6 +29,7 @@ function Main() {
     const dispatch = useDispatch();
     const win = useSelector(state => state.win);
     const end = useSelector(state => state.end);
+    const answer = useSelector(state => state.answer);
     const handler = ({key}) => {
         if ('abcdefghijklmnopqrstuvwxyz'.split('').includes(key)) {
             dispatch(InputLetter(key))
@@ -42,6 +43,10 @@ function Main() {
     };
 
     useEventListener("keydown", handler);
+
+    const reload_page= ()=>{
+        window.location.reload(false);
+    }
 
     let color;
 
@@ -59,7 +64,8 @@ function Main() {
             {end && <div className="message">
                 <div className="tab" style={{backgroundColor: color}}>
                     {win && <h1>You Win!!</h1>}
-                    {end && !win ? <h1>You Lose</h1> : ""}
+                    {end && !win ? <h1>You Lose. The Answer was {answer.join('')}</h1> : ""}
+                    <h2 onClick={reload_page}>Play Again?</h2>
                 </div>
             </div>}
 

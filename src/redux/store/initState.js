@@ -21,5 +21,7 @@ export const initState={
     guessed:"",
     change:false,
     end:false,
-    win:false
+    win:false,
+    warn:false,
+    press:false
 }
