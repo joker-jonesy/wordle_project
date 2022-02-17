@@ -7,6 +7,7 @@ function configureStore (state=initState()){
 
     const gameState = localStorage.getItem('game-state');
 
+
     if(gameState){
         return createStore(rootReducer, load());
     }else{

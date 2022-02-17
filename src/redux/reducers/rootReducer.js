@@ -1,5 +1,5 @@
 import initState from "../store/initState";
-import {save} from "./LocalStorage";
+import {save, score_load, score_save} from "./LocalStorage";
 
 const rootReducer = (state, action) => {
     let activeGuess = state.guesses[state.try];
@@ -43,6 +43,7 @@ const rootReducer = (state, action) => {
             let end = state.end;
             let addLetters = state.guessed;
             let nGs;
+            let currentScores = score_load();
 
             if (activeGuess.indexOf('') === -1 && !state.end) {
                 newGuesses[state.try] = activeGuess;
@@ -50,11 +51,24 @@ const rootReducer = (state, action) => {
                 if (newGuesses[state.try].join('') === state.answer.join('')) {
                     win = true;
                     end = true;
+                    currentScores={
+                        ...currentScores,
+                        [state.try+1]:currentScores[state.try+1]+1
+                    }
+                    score_save(currentScores)
                 }
 
                 if (newTry === 6) {
                     end = true;
+                    if(!win){
+                        currentScores={
+                            ...currentScores,
+                            lose:currentScores.lose+1
+                        }
+                        score_save(currentScores)
+                    }
                 }
+
                 nGs={
                     ...state,
                     guesses: newGuesses,

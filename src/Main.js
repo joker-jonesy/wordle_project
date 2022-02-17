@@ -6,6 +6,8 @@ import {SubmitGuess} from "./redux/actions/SubmitGuess";
 import {DeleteLetter} from "./redux/actions/DeleteLetter";
 import {InputLetter} from "./redux/actions/InputLetter";
 import {NewGame} from "./redux/actions/NewGame";
+import ScoreBoard from "./components/ScoreBoard";
+
 
 const enter_keys = ['Enter'];
 const back_keys = ['Backspace', 8];
@@ -43,10 +45,6 @@ function Main() {
 
     useEventListener("keydown", handler);
 
-    // const reload_page= ()=>{
-    //     window.location.reload(false);
-    // }
-
     let color;
 
     if(win){
@@ -59,6 +57,8 @@ function Main() {
         dispatch(NewGame())
     }
 
+
+
     return (
         <div className="contain">
             <h1>Guess the Word!</h1>
@@ -68,6 +68,7 @@ function Main() {
                 <div className="tab" style={{backgroundColor: color}}>
                     {win && <h1>You Win!!</h1>}
                     {end && !win ? <h1>You Lose. The Answer was {answer.join('')}</h1> : ""}
+                    <ScoreBoard/>
                     <h2 onClick={create_new_game}>Play Again?</h2>
                 </div>
             </div>}
