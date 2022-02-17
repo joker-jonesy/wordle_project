@@ -42,7 +42,7 @@ function Main() {
 
     };
 
-    useEventListener("keydown", handler);
+    // useEventListener("keydown", handler);
 
     const reload_page= ()=>{
         window.location.reload(false);
