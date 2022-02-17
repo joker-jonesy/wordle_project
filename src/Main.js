@@ -38,7 +38,7 @@ function Main() {
         console.log(window.innerWidth);
         if ('abcdefghijklmnopqrstuvwxyz'.split('').includes(key)) {
             dispatch(InputLetter(key))
-        } else if (enter_keys.includes(key) && window.innerWidth>400) {
+        } else if (enter_keys.includes(key)) {
             dispatch(SubmitGuess())
         } else if (back_keys.includes(key)) {
             dispatch(DeleteLetter())
