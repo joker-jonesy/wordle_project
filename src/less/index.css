@@ -140,7 +140,6 @@ body {
   top: 120px;
   left: 25px;
   margin: 0;
-  z-index: 95;
   cursor: pointer;
 }
 @media screen and (min-width: 390px) {
