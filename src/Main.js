@@ -40,6 +40,7 @@ function Main() {
         }
         else if (enter_keys.includes(key)) {
             dispatch(SubmitGuess())
+            alert("you hit enter");
         }
         else if (back_keys.includes(key)) {
             dispatch(DeleteLetter())
