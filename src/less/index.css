@@ -103,6 +103,7 @@ body {
   margin: 4px;
   text-transform: capitalize;
   animation-duration: 1s;
+  font-size: 36px;
 }
 .keys {
   display: flex;
@@ -157,6 +158,13 @@ body {
   .key.delete {
     right: 0;
   }
+}
+.key.test {
+  position: absolute;
+  top: -120px;
+  right: 25px;
+  margin: 0;
+  width: 55px;
 }
 .help {
   height: 100%;

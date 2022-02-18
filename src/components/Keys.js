@@ -16,6 +16,7 @@ function Keys(){
             {key_eles}
             <div className="key submit" onClick={()=>dispatch(SubmitGuess())}>Enter</div>
             <div className="key delete" onClick={()=>dispatch(DeleteLetter())}>Delete</div>
+            <div className="key test" onClick={()=>alert("Hello Friends!")}>Test</div>
         </div>
     )
 }
