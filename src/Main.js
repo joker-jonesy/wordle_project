@@ -2,15 +2,15 @@ import Guesses from "./components/Guesses";
 import Keys from "./components/Keys";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {SubmitGuess} from "./redux/actions/SubmitGuess";
-import {DeleteLetter} from "./redux/actions/DeleteLetter";
-import {InputLetter} from "./redux/actions/InputLetter";
+// import {SubmitGuess} from "./redux/actions/SubmitGuess";
+// import {DeleteLetter} from "./redux/actions/DeleteLetter";
+// import {InputLetter} from "./redux/actions/InputLetter";
 import {NewGame} from "./redux/actions/NewGame";
 import ScoreBoard from "./components/ScoreBoard";
 
 
-const enter_keys = ['Enter'];
-const back_keys = ['Backspace', 8];
+// const enter_keys = ['Enter'];
+// const back_keys = ['Backspace', 8];
 
 const useEventListener = (eventName, handler, element = window) => {
     const savedHandler = React.useRef();
@@ -35,16 +35,16 @@ function Main() {
     const answer = useSelector(state => state.answer);
 
     const handler = ({key}) => {
-        if ('abcdefghijklmnopqrstuvwxyz'.split('').includes(key)) {
-            dispatch(InputLetter(key))
-        }
-        else if (enter_keys.includes(key)) {
-            dispatch(SubmitGuess())
-            alert("you hit enter");
-        }
-        else if (back_keys.includes(key)) {
-            dispatch(DeleteLetter())
-        }
+        // if ('abcdefghijklmnopqrstuvwxyz'.split('').includes(key)) {
+        //     dispatch(InputLetter(key))
+        // }
+        // else if (enter_keys.includes(key)) {
+        //     dispatch(SubmitGuess())
+        //     alert("you hit enter");
+        // }
+        // else if (back_keys.includes(key)) {
+        //     dispatch(DeleteLetter())
+        // }
     };
 
     useEventListener("keydown", handler);
