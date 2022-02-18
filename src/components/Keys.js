@@ -14,9 +14,8 @@ function Keys(){
     return (
         <div className={"keys"}>
             {key_eles}
-            <div className="key submit" onClick={()=>dispatch(SubmitGuess())}>Enter</div>
+            <button className="key submit" onClick={()=>dispatch(SubmitGuess())}>Enter</button>
             <div className="key delete" onClick={()=>dispatch(DeleteLetter())}>Delete</div>
-            <div className="key test" onClick={()=>dispatch(SubmitGuess())}>Test</div>
         </div>
     )
 }
