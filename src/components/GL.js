@@ -13,7 +13,7 @@ function GL(props) {
     let indicesAnswer = [];
     let chrCountAnswer = [];
     for (let i = 0; i < answer.length; i++) {
-        if (answer[i] === props.vl){
+        if (answer[i] === props.vl) {
             indicesAnswer.push(i);
             chrCountAnswer.push(props.vl)
         }
@@ -21,61 +21,42 @@ function GL(props) {
 
     if (cTry !== 0 && props.gi < cTry) {
         if (answer.join('').includes(currentGuess[props.idx])) {
-            if (answer.indexOf(currentGuess[props.idx]) === currentGuess.indexOf(props.vl)) {
-                if (currentGuess.filter((x)=>x===props.vl).length > 1) {
+            if (currentGuess.filter((x) => x === props.vl).length > 1) {
 
-                    if (indicesAnswer.find(itm=>itm===props.idx)===props.idx) {
-                        style = {
-                            color: "white",
-                            backgroundColor: "green",
-                            border:"none"
-                        }
-                    } else {
-                        style = {
-                            color: "white",
-                            backgroundColor: "black",
-                            border:"none"
-                        }
-                    }
-
-                } else {
-
+                if(indicesAnswer.includes(props.idx)){
                     style = {
                         color: "white",
                         backgroundColor: "green",
-                        border:"none"
-                    }
-                }
-
-            } else {
-                if (currentGuess.filter((x)=>x===props.vl).length > 1) {
-                    if(answer.length-props.idx<=currentGuess.filter((x)=>x===props.vl).length){
-                        style = {
-                            color: "black",
-                            backgroundColor: "yellow",
-                            border:"none"
-                        }
-                    }else{
-                        style = {
-                            color: "white",
-                            backgroundColor: "black",
-                            border:"none"
-                        }
+                        border: "none"
                     }
                 }else{
                     style = {
-                        color: "black",
-                        backgroundColor: "yellow",
-                        border:"none"
+                        color: "white",
+                        backgroundColor: "black",
+                        border: "none"
                     }
                 }
-
+            } else {
+                if (answer.indexOf(currentGuess[props.idx]) === currentGuess.indexOf(props.vl)) {
+                    style = {
+                        color: "white",
+                        backgroundColor: "green",
+                        border: "none"
+                    }
+                } else {
+                    style = {
+                        color: "black",
+                        backgroundColor: "yellow",
+                        border: "none"
+                    }
+                }
             }
+
         } else {
             style = {
                 color: "white",
                 backgroundColor: "black",
-                border:"none"
+                border: "none"
             }
         }
     }

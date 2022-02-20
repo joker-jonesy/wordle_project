@@ -16,15 +16,12 @@ function Key(props) {
         if (answer.join('').includes(props.vl)) {
             for (let i = 0; i < cTry; i++) {
                 if (!stop) {
-                    if (guesses[i].indexOf(props.vl) === answer.indexOf(props.vl)) {
+                    if (guesses[i].lastIndexOf(props.vl) === answer.lastIndexOf(props.vl)||guesses[i].indexOf(props.vl) === answer.indexOf(props.vl)) {
                         style = {
                             color: "white",
                             backgroundColor: "green"
                         }
-
                         stop = true;
-
-
                     } else {
                         style = {
                             color: "black",
