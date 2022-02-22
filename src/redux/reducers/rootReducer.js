@@ -1,9 +1,5 @@
 import initState from "../store/initState";
 import {save, score_load, score_save} from "./LocalStorage";
-import C_W from "./WordChecker";
-
-
-
 
 const rootReducer = (state, action) => {
     let activeGuess = state.guesses[state.try];
@@ -49,31 +45,31 @@ const rootReducer = (state, action) => {
             let nGs;
             let currentScores = score_load();
 
-            if (activeGuess.indexOf('') === -1 && !state.end&&C_W(newGuesses[state.try].join(''))) {
+            if (activeGuess.indexOf('') === -1 && !state.end) {
                 newGuesses[state.try] = activeGuess;
                 addLetters = addLetters + activeGuess.join('');
                 if (newGuesses[state.try].join('') === state.answer.join('')) {
                     win = true;
                     end = true;
-                    currentScores = {
+                    currentScores={
                         ...currentScores,
-                        [state.try + 1]: currentScores[state.try + 1] + 1
+                        [state.try+1]:currentScores[state.try+1]+1
                     }
                     score_save(currentScores)
                 }
 
                 if (newTry === 6) {
                     end = true;
-                    if (!win) {
-                        currentScores = {
+                    if(!win){
+                        currentScores={
                             ...currentScores,
-                            lose: currentScores.lose + 1
+                            lose:currentScores.lose+1
                         }
                         score_save(currentScores)
                     }
                 }
 
-                nGs = {
+                nGs={
                     ...state,
                     guesses: newGuesses,
                     try: newTry,
@@ -87,7 +83,7 @@ const rootReducer = (state, action) => {
                 save(nGs)
                 return nGs;
             } else {
-                nGs = {
+                nGs={
                     ...state,
                     warn: true,
                     press: !state.press
@@ -113,7 +109,7 @@ const rootReducer = (state, action) => {
 
                 newGuesses[state.try] = activeGuess
 
-                nL = {
+                nL={
                     ...state,
                     guesses: newGuesses,
                     change: !state.change,
@@ -164,7 +160,7 @@ const rootReducer = (state, action) => {
 
                 newGuesses[state.try] = activeGuess
 
-                nD = {
+                nD={
                     ...state,
                     guesses: newGuesses,
                     change: !state.change,
