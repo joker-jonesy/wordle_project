@@ -258,4 +258,25 @@ body {
 .warning .gl {
   animation-name: warn_shake, shake;
 }
+.scores .score {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 300px;
+}
+.scores .score h3 {
+  width: 35px;
+  text-align: center;
+}
+.scores .bar {
+  width: 200px;
+  height: 10px;
+  margin-left: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.scores .bar .fill {
+  background-color: white;
+  height: 100%;
+}
 /*# sourceMappingURL=index.css.map */

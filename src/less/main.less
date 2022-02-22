@@ -243,3 +243,28 @@ html,body{
     animation-name: warn_shake, shake;
   }
 }
+
+.scores{
+  .score{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 300px;
+    h3{
+      width: 35px;
+      text-align: center;
+    }
+  }
+  .bar{
+    width: 200px;
+    height: 10px;
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    .fill{
+      background-color: white;
+      height: 100%;
+    }
+  }
+}
