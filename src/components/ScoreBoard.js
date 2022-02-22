@@ -1,12 +1,10 @@
 import {score_load} from "../redux/reducers/LocalStorage";
 import React from "react";
-import {useSelector} from "react-redux";
 import ScoreBar from "./ScoreBar";
 function ScoreBoard(){
 
     const [scores,setScores]=React.useState([]);
     const [ts,setTS]=React.useState(0);
-    const end = useSelector(state=>state.end);
 
     React.useEffect(()=>{
         let newScores = score_load();
