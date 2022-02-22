@@ -150,6 +150,7 @@ body {
   margin: 0;
   width: 55px;
   cursor: pointer;
+  font-size: 21px;
 }
 .key.test {
   position: absolute;
