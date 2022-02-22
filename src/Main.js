@@ -64,7 +64,7 @@ function Main() {
 
     return (
         <div className="contain">
-            <h1>Guess the Word!</h1>
+            <h1>Endless Wordle</h1>
             <Guesses/>
             <Keys/>
             {end && <div className="message">
