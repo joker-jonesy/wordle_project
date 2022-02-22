@@ -107,18 +107,6 @@ body {
   font-size: 36px;
   perspective: 1000px;
 }
-.guess .gl:nth-child(2) {
-  transition-delay: 1000ms;
-}
-.guess .gl:nth-child(3) {
-  transition-delay: 2000ms;
-}
-.guess .gl:nth-child(4) {
-  transition-delay: 3000ms;
-}
-.guess .gl:nth-child(5) {
-  transition-delay: 4000ms;
-}
 .guess .gl.flipped .flipper {
   transform: rotateX(-180deg);
 }
@@ -133,6 +121,18 @@ body {
   justify-content: center;
   align-items: center;
 }
+.guess .gl .d1 {
+  transition-delay: 500ms;
+}
+.guess .gl .d2 {
+  transition-delay: 1000ms;
+}
+.guess .gl .d3 {
+  transition-delay: 1500ms;
+}
+.guess .gl .d4 {
+  transition-delay: 2000ms;
+}
 .guess .gl .front,
 .guess .gl .back {
   height: 62px;
@@ -146,6 +146,7 @@ body {
   align-items: center;
   box-sizing: border-box;
   animation-duration: 1s;
+  transition: 0.5s;
 }
 .guess .gl .front {
   z-index: 2;
@@ -248,15 +249,12 @@ body {
 @keyframes warn_shake {
   0% {
     background-color: inherit;
-    border: 2px solid #939598;
   }
   50% {
-    background-color: red;
-    border: none;
+    background-color: #fd2c2c;
   }
   100% {
     background-color: inherit;
-    border: 2px solid #939598;
   }
 }
 @keyframes shake {

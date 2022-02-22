@@ -43,11 +43,15 @@ function GL(props) {
     }
 
     let flipped = cTry !== 0 && props.gi < cTry ? "flipped": "";
+    let delay = (props.idx+1)*1000
+    delay=delay.toString()
+
+    console.log(delay)
 
 
     return (
         <div className={"gl "+flipped} >
-            <div className={"flipper"}>
+            <div className={"flipper d"+props.idx}>
                 <div className="front">{props.vl}</div>
                 <div className="back" style={style}>{props.vl}</div>
             </div>

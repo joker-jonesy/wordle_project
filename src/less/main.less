@@ -115,28 +115,6 @@ html,body{
     font-size: 36px;
     perspective: 1000px;
 
-    &:nth-child(2){
-
-        transition-delay: 1000ms;
-
-    }
-
-    &:nth-child(3){
-        transition-delay: 2000ms;
-
-    }
-
-    &:nth-child(4){
-
-        transition-delay: 3000ms;
-
-
-    }
-
-    &:nth-child(5){
-        transition-delay: 4000ms;
-    }
-
     &.flipped{
       .flipper{
         transform: rotateX(-180deg);
@@ -155,6 +133,22 @@ html,body{
       align-items: center;
     }
 
+    .d1{
+      transition-delay: 500ms;
+    }
+
+    .d2{
+      transition-delay: 1000ms;
+    }
+
+    .d3{
+      transition-delay: 1500ms;
+    }
+
+    .d4{
+      transition-delay: 2000ms;
+    }
+
     .front,.back{
       height: 62px;
       width: 62px;
@@ -167,6 +161,7 @@ html,body{
       align-items: center;
       box-sizing: border-box;
       animation-duration: 1s;
+      transition: 0.5s;
     }
 
     .front {
@@ -285,9 +280,9 @@ html,body{
 }
 
 @keyframes warn_shake {
-  0% {background-color: inherit; border: 2px solid #939598;}
-  50% {background-color: red;border: none;}
-  100% {background-color: inherit; border: 2px solid #939598;}
+  0% {background-color: inherit; }
+  50% {background-color: #fd2c2c;}
+  100% {background-color: inherit; }
 }
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
