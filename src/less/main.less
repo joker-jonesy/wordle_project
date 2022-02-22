@@ -112,9 +112,30 @@ html,body{
     box-sizing: border-box;
     margin: 4px;
     text-transform: capitalize;
-    animation-duration: 1s;
     font-size: 36px;
     perspective: 1000px;
+
+    &:nth-child(2){
+
+        transition-delay: 1000ms;
+
+    }
+
+    &:nth-child(3){
+        transition-delay: 2000ms;
+
+    }
+
+    &:nth-child(4){
+
+        transition-delay: 3000ms;
+
+
+    }
+
+    &:nth-child(5){
+        transition-delay: 4000ms;
+    }
 
     &.flipped{
       .flipper{
@@ -132,8 +153,6 @@ html,body{
       display: flex;
       justify-content: center;
       align-items: center;
-
-
     }
 
     .front,.back{
@@ -146,13 +165,14 @@ html,body{
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 2px solid #939598;
       box-sizing: border-box;
+      animation-duration: 1s;
     }
 
     .front {
       z-index: 2;
       transform: rotateX(0deg);
+      border: 2px solid #939598;
     }
 
     .back {
@@ -286,7 +306,13 @@ html,body{
 
 .warning{
   .gl{
-    animation-name: warn_shake, shake;
+    .flipper{
+      .front{
+        animation-name: warn_shake, shake;
+      }
+    }
+
+
   }
 }
 

@@ -104,9 +104,20 @@ body {
   box-sizing: border-box;
   margin: 4px;
   text-transform: capitalize;
-  animation-duration: 1s;
   font-size: 36px;
   perspective: 1000px;
+}
+.guess .gl:nth-child(2) {
+  transition-delay: 1000ms;
+}
+.guess .gl:nth-child(3) {
+  transition-delay: 2000ms;
+}
+.guess .gl:nth-child(4) {
+  transition-delay: 3000ms;
+}
+.guess .gl:nth-child(5) {
+  transition-delay: 4000ms;
 }
 .guess .gl.flipped .flipper {
   transform: rotateX(-180deg);
@@ -133,12 +144,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #939598;
   box-sizing: border-box;
+  animation-duration: 1s;
 }
 .guess .gl .front {
   z-index: 2;
   transform: rotateX(0deg);
+  border: 2px solid #939598;
 }
 .guess .gl .back {
   transform: rotateX(180deg);
@@ -282,7 +294,7 @@ body {
     transform: translate(1px, -2px) rotate(-1deg);
   }
 }
-.warning .gl {
+.warning .gl .flipper .front {
   animation-name: warn_shake, shake;
 }
 .scores .score {
