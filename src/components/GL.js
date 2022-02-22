@@ -42,10 +42,16 @@ function GL(props) {
         }
     }
 
+    let flipped = cTry !== 0 && props.gi < cTry ? "flipped": "";
+
 
     return (
-        <div className={"gl"} style={style}>
-            {props.vl}
+        <div className={"gl "+flipped} >
+            <div className={"flipper"}>
+                <div className="front">{props.vl}</div>
+                <div className="back" style={style}>{props.vl}</div>
+            </div>
+
         </div>
     )
 }

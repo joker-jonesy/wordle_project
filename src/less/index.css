@@ -102,11 +102,46 @@ body {
   align-items: center;
   position: relative;
   box-sizing: border-box;
-  border: 2px solid #939598;
   margin: 4px;
   text-transform: capitalize;
   animation-duration: 1s;
   font-size: 36px;
+  perspective: 1000px;
+}
+.guess .gl.flipped .flipper {
+  transform: rotateX(-180deg);
+}
+.guess .gl .flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  transform-origin: 100% 31px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.guess .gl .front,
+.guess .gl .back {
+  height: 62px;
+  width: 62px;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #939598;
+  box-sizing: border-box;
+}
+.guess .gl .front {
+  z-index: 2;
+  transform: rotateX(0deg);
+}
+.guess .gl .back {
+  transform: rotateX(180deg);
 }
 .keys {
   display: flex;
