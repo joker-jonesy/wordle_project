@@ -1,4 +1,5 @@
 import {useSelector} from "react-redux";
+import {StyleLabels} from "../assets/StyleLabels";
 
 function GL(props) {
 
@@ -24,40 +25,20 @@ function GL(props) {
             if (currentGuess.filter((x) => x === props.vl).length > 1) {
 
                 if(indicesAnswer.includes(props.idx)){
-                    style = {
-                        color: "white",
-                        backgroundColor: "green",
-                        border: "none"
-                    }
+                    style = StyleLabels.good;
                 }else{
-                    style = {
-                        color: "white",
-                        backgroundColor: "black",
-                        border: "none"
-                    }
+                    style = StyleLabels.bad;
                 }
             } else {
                 if (answer.indexOf(currentGuess[props.idx]) === currentGuess.indexOf(props.vl)) {
-                    style = {
-                        color: "white",
-                        backgroundColor: "green",
-                        border: "none"
-                    }
+                    style = StyleLabels.good;
                 } else {
-                    style = {
-                        color: "black",
-                        backgroundColor: "yellow",
-                        border: "none"
-                    }
+                    style = StyleLabels.okay;
                 }
             }
 
         } else {
-            style = {
-                color: "white",
-                backgroundColor: "black",
-                border: "none"
-            }
+            style = StyleLabels.bad;
         }
     }
 

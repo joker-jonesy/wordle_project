@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {ToggleHelp} from "../redux/actions/ToggleHelp";
+import {StyleLabels} from "../assets/StyleLabels";
 
 function Help(){
 
@@ -29,7 +30,7 @@ function Help(){
                 <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
                 <h3>Examples</h3>
                 <div className="guess">
-                    <div className="gl" style={{backgroundColor:"green", color:"white", border:"none"}}>W</div>
+                    <div className="gl" style={StyleLabels.good}>W</div>
                     <div className="gl">E</div>
                     <div className="gl">A</div>
                     <div className="gl">R</div>
@@ -38,7 +39,7 @@ function Help(){
                 <p>The letter W is in the word and in the correct spot.</p>
                 <div className="guess">
                     <div className="gl">P</div>
-                    <div className="gl" style={{backgroundColor:"yellow", color:"white", border:"none"}}>I</div>
+                    <div className="gl" style={StyleLabels.okay}>I</div>
                     <div className="gl">L</div>
                     <div className="gl">L</div>
                     <div className="gl">S</div>
@@ -48,7 +49,7 @@ function Help(){
                     <div className="gl">V</div>
                     <div className="gl">A</div>
                     <div className="gl">G</div>
-                    <div className="gl" style={{backgroundColor:"black", color:"white", border:"none"}}>U</div>
+                    <div className="gl" style={StyleLabels.bad}>U</div>
                     <div className="gl">E</div>
                 </div>
                 <p>The letter U is not in the word in any spot.</p>
