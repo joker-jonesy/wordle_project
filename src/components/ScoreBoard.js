@@ -13,13 +13,17 @@ function ScoreBoard(){
             scoreList.push([i,newScores[i]])
         }
         setScores(scoreList)
+
+
+    },[])
+
+    React.useEffect(()=>{
         let totalTries=0
         for(let ii in scores){
             totalTries=totalTries+scores[ii][1]
         }
         setTS(totalTries)
-
-    }, [])
+    },[scores])
 
     let eles = scores.map((it,i)=>
         <ScoreBar key={i} score={it[0]} fill={it[1]/ts}/>
