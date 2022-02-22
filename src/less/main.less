@@ -116,13 +116,30 @@ html,body{
     perspective: 1000px;
 
     &.flipped{
+      transition: 0.5s;
       .flipper{
+        transition: 0.5s;
         transform: rotateX(-180deg);
+      }
+
+      .d1{
+        transition-delay: 500ms;
+      }
+
+      .d2{
+        transition-delay: 1000ms;
+      }
+
+      .d3{
+        transition-delay: 1500ms;
+      }
+
+      .d4{
+        transition-delay: 2000ms;
       }
     }
 
     .flipper{
-      transition: 0.6s;
       transform-style: preserve-3d;
       transform-origin: 100% 31px;
       position: relative;
@@ -133,21 +150,7 @@ html,body{
       align-items: center;
     }
 
-    .d1{
-      transition-delay: 500ms;
-    }
 
-    .d2{
-      transition-delay: 1000ms;
-    }
-
-    .d3{
-      transition-delay: 1500ms;
-    }
-
-    .d4{
-      transition-delay: 2000ms;
-    }
 
     .front,.back{
       height: 62px;

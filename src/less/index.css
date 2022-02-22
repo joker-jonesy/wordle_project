@@ -107,11 +107,26 @@ body {
   font-size: 36px;
   perspective: 1000px;
 }
+.guess .gl.flipped {
+  transition: 0.5s;
+}
 .guess .gl.flipped .flipper {
+  transition: 0.5s;
   transform: rotateX(-180deg);
 }
+.guess .gl.flipped .d1 {
+  transition-delay: 500ms;
+}
+.guess .gl.flipped .d2 {
+  transition-delay: 1000ms;
+}
+.guess .gl.flipped .d3 {
+  transition-delay: 1500ms;
+}
+.guess .gl.flipped .d4 {
+  transition-delay: 2000ms;
+}
 .guess .gl .flipper {
-  transition: 0.6s;
   transform-style: preserve-3d;
   transform-origin: 100% 31px;
   position: relative;
@@ -120,18 +135,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.guess .gl .d1 {
-  transition-delay: 500ms;
-}
-.guess .gl .d2 {
-  transition-delay: 1000ms;
-}
-.guess .gl .d3 {
-  transition-delay: 1500ms;
-}
-.guess .gl .d4 {
-  transition-delay: 2000ms;
 }
 .guess .gl .front,
 .guess .gl .back {

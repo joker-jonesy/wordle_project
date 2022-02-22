@@ -55,7 +55,6 @@ function GL(props) {
                 <div className="front">{props.vl}</div>
                 <div className="back" style={style}>{props.vl}</div>
             </div>
-
         </div>
     )
 }
