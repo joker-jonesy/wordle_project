@@ -23,14 +23,15 @@ function GL(props) {
     if (cTry !== 0 && props.gi < cTry) {
         if (answer.join('').includes(currentGuess[props.idx])) {
             if (currentGuess.filter((x) => x === props.vl).length > 1) {
-
                 if(indicesAnswer.includes(props.idx)){
                     style = StyleLabels.good;
+                }else if(currentGuess.indexOf(props.vl)===props.idx&&answer.indexOf(props.vl)!==currentGuess.indexOf(props.vl)){
+                    style = StyleLabels.okay;
                 }else{
                     style = StyleLabels.bad;
                 }
             } else {
-                if (answer.indexOf(currentGuess[props.idx]) === currentGuess.indexOf(props.vl)) {
+                if (answer.indexOf(currentGuess[props.idx]) === currentGuess.indexOf(props.vl)||answer.lastIndexOf(currentGuess[props.idx]) === currentGuess.lastIndexOf(props.vl)) {
                     style = StyleLabels.good;
                 } else {
                     style = StyleLabels.okay;
@@ -43,11 +44,6 @@ function GL(props) {
     }
 
     let flipped = cTry !== 0 && props.gi < cTry ? "flipped": "";
-    let delay = (props.idx+1)*1000
-    delay=delay.toString()
-
-    console.log(delay)
-
 
     return (
         <div className={"gl "+flipped} >
